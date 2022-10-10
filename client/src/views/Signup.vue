@@ -13,7 +13,6 @@ import router from '../router/index'
 
     <div class="container">
       <h1> Sign up form </h1>
-
       <form action="/signup" method="POST">
 	      <input type="text" name="username" placeholder="username">
 	      <input type="password" name="password" placeholder="password">
