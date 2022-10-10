@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
 import Nav from '../components/Nav.vue'
-
 </script>
 
 <template>
- <main>
+  <main>
     <NavView />
   </main>
 
   <div class="container">
-    <h1>Your History</h1>
+    <h1>Admin</h1>
   </div>
 </template>
