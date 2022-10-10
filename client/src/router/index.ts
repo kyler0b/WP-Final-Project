@@ -5,8 +5,9 @@ import FriendView from '../views/FriendView.vue'
 import HistoryView from '../views/FriendView.vue'
 import AdminView from '../views/AdminView.vue'
 import AboutView from '../views/AboutView.vue'
-import LoginView from '../views/Login.vue'
-import SignupView from '../views/Signup.vue'
+import LoginView from '../components/Login.vue'
+import RegistrationView from '../components/Registration.vue'
+import ForgotPasswordView from '../components/ForgotPassword.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,12 +45,17 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: () => import('../components/Login.vue')
     },
     {
       path: '/signup',
       name: 'signup',
-      component: SignupView
+      component: () => import('../components/Registration.vue')
+    },
+    {
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: () => import('../components/ForgotPassword.vue')
     }
 
   ]
