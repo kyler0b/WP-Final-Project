@@ -3,14 +3,16 @@ import { RouterLink, RouterView } from 'vue-router'
 import NavView from './components/Nav.vue';
 </script>
 
-
 <template>
-  <header>
+  <div>
+    <header>
     <NavView />
   </header>
-    
+
   <div class = 'container'>
     <RouterView />
+  </div>
+
   </div>
 </template>
 
