@@ -4,12 +4,14 @@ import Nav from '../components/Nav.vue'
 </script>
 
 <template>
-  <main>
-    <NavView />
-  </main>
+  <div>
+    <main>
+      <NavView />
+    </main>
   
-  <div class="about">
-    <h1>About Fitnes App</h1>
+    <div class="about">
+      <h1>About Fitnes App</h1>
+    </div>
   </div>
 </template>
 

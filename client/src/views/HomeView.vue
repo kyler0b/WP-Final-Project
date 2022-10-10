@@ -4,7 +4,9 @@ import Nav from '../components/Nav.vue';
 </script>
 
 <template>
-  <main>
-    <NavView />
-  </main>
+  <div>
+    <main>
+      <NavView />
+    </main>
+  </div>
 </template>

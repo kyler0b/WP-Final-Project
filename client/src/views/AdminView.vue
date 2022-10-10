@@ -4,11 +4,13 @@ import Nav from '../components/Nav.vue'
 </script>
 
 <template>
-  <main>
-    <NavView />
-  </main>
+  <div>
+    <main>
+      <NavView />
+    </main>
 
-  <div class="container">
-    <h1>Admin</h1>
+    <div class="container">
+      <h1>Admin</h1>
+    </div>
   </div>
 </template>
