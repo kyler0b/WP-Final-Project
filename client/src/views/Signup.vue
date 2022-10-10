@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
-import Nav from '../components/Nav.vue';
+import Nav from '../components/Nav.vue'
 </script>
 
 <template>
@@ -8,9 +8,9 @@ import Nav from '../components/Nav.vue';
     <main>
       <NavView />
     </main>
-    
+
     <div class="container">
-      <h1 class ="title">Home</h1>
+      <h1 class ="title">Sign Up Page</h1>
     </div>
   </div>
 </template>
