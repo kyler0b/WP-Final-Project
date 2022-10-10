@@ -6,8 +6,8 @@ import NavView from './components/Nav.vue';
 <template>
   <div>
     <header>
-    <NavView />
-  </header>
+      <NavView />
+    </header>
 
   <div class = 'container'>
     <RouterView />

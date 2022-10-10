@@ -10,7 +10,7 @@ import Nav from '../components/Nav.vue'
     </main>
 
     <div class="container">
-      <h1>Admin</h1>
+      <h1 class ="title">Admin</h1>
     </div>
   </div>
 </template>

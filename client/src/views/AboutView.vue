@@ -9,18 +9,9 @@ import Nav from '../components/Nav.vue'
       <NavView />
     </main>
   
-    <div class="about">
-      <h1>About Fitnes App</h1>
+    <div class="container">
+      <h1 class ="title">About Fitnes App</h1>
     </div>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

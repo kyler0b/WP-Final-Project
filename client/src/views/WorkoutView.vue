@@ -10,7 +10,7 @@ import Nav from '../components/Nav.vue'
     </main>
 
     <div class="container">
-      <h1>Workouts</h1>
+      <h1 class ="title">Workouts</h1>
     </div>
   </div>
 </template>
