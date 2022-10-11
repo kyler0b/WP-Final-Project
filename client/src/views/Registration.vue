@@ -1,6 +1,6 @@
 <script>
-import TheWelcome from './TheWelcome.vue'
-import Nav from './Nav.vue'
+import TheWelcome from '../components/TheWelcome.vue'
+import Nav from '../components/Nav.vue'
 import router from '../router/index'
 
 export default {
@@ -16,7 +16,7 @@ export default {
           <h3>Sign Up</h3>
 
           <div class="form-group">
-              <label>Full Name</label>
+              <label>User Name</label>
               <input type="text" class="form-control form-control-lg"/>
           </div>
 

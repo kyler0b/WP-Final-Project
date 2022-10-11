@@ -5,9 +5,10 @@ import FriendView from '../views/FriendView.vue'
 import HistoryView from '../views/FriendView.vue'
 import AdminView from '../views/AdminView.vue'
 import AboutView from '../views/AboutView.vue'
-import LoginView from '../components/Login.vue'
-import RegistrationView from '../components/Registration.vue'
-import ForgotPasswordView from '../components/ForgotPassword.vue'
+import LoginView from '../views/Login.vue'
+import RegistrationView from '../views/Registration.vue'
+import UserView from '../views/UserView.vue'
+import TheWelcomeView from '../components/TheWelcome.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,17 +46,22 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../components/Login.vue')
+      component: () => import('../views/Login.vue')
     },
     {
       path: '/signup',
       name: 'signup',
-      component: () => import('../components/Registration.vue')
+      component: () => import('../views/Registration.vue')
     },
     {
-      path: '/forgot-password',
-      name: 'forgot-password',
-      component: () => import('../components/ForgotPassword.vue')
+      path: '/userprofile',
+      name: 'userprofile',
+      component: () => import('../views/UserView.vue')
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: TheWelcomeView
     }
 
   ]
