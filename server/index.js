@@ -30,6 +30,8 @@ app.use(bodyParser.urlencoded(
 ))
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 //=======================
 //      R O U T E S
 //=======================

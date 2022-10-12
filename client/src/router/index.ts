@@ -6,8 +6,7 @@ import HistoryView from '../views/FriendView.vue'
 import AdminView from '../views/AdminView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/Login.vue'
-import RegistrationView from '../views/Registration.vue'
-import UserView from '../views/UserView.vue'
+import SignupView from '../views/Signup.vue'
 import TheWelcomeView from '../components/TheWelcome.vue'
 
 const router = createRouter({
@@ -51,12 +50,7 @@ const router = createRouter({
     {
       path: '/signup',
       name: 'signup',
-      component: () => import('../views/Registration.vue')
-    },
-    {
-      path: '/userprofile',
-      name: 'userprofile',
-      component: () => import('../views/UserView.vue')
+      component: () => import('../views/Signup.vue')
     },
     {
       path: '/logout',
