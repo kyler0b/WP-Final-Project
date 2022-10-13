@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 import Nav from '../components/Nav.vue';
+import session, { login, logout } from '../stores/session'
 
 import { reactive } from 'vue';
 import { remove } from '@vue/shared';
@@ -13,15 +13,15 @@ const workouts = [
 ]
 
 const cart = reactive ([
-  {name: 'Squats', qty: 1},
-  {name: 'Burpees', qty: 1},
-  {name: 'Pushups', qty: 1},
-  {name: 'Situps', qty: 1},
+  {name: 'Squats', qty: 10},
+  {name: 'Burpees', qty: 10},
+  {name: 'Pushups', qty: 10},
+  {name: 'Situps', qty: 10},
   
 ]) 
 
 function addToCart(workouts: any) {
-  cart.push({ ...workouts, qty: 1 });
+  cart.push({ ...workouts, qty: 10 });
 }
 
 function removeFromCart(workouts: any) {
@@ -35,55 +35,67 @@ function removeFromCart(workouts: any) {
     <main>
       <NavView />
     </main>
-    
-    <div class="container1">
+  
+    <div class="content" v-if="session.user != null">
 
-      <div class = "inner-container">
-        <h2 class ="title">Pick Workouts</h2>
-        <ul>
+      <div class = "content">
+        <h2 class ="title">Choose Your Workouts</h2>
+      <div class = "listcontainer">
+        <li>
           <li v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)">
             <h3>{{ workout.name }}</h3>
           </li>
-        </ul>
+        </li>
       </div>
 
-      <div class = "inner-container">
-        <h2 class ="title">My Workouts</h2>
+      </div>
+      <div class = "content">
+        <h2 class ="title">Your Workouts</h2>
         <table class="table is-bordered">
           <tr>
             <th>Workout</th>
             <th>Qty</th>
-            <th class = "th1"></th>
+            <th></th>
           </tr>
           <tr v-for="workout in cart" :key="workout.name">
             <td>{{ workout.name }}</td>
-            <td><input v-model="workout.qty" /></td>
+            <td>{{workout.qty}}</td>
             <td><input type="button" class="remove-item" background-color= "red" value="X" @click="removeFromCart(workout)"/></td>
           </tr>
         </table>
       </div>
     </div>
+    <div class = "content" v-else>
+      <h2 class = "title">Welcome to Fitness App</h2>
+      <p class ="subtitle">To enjoy the full experience you must log in.</p>
+    </div>
+
   </div>
 </template>
 
 <style lang="scss">
 
-.container1{
-  padding-top:100px;
-  width: 100%;
-  justify-content: center;
-  display: flex;
+.content {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
 }
-ul {
-     display: flex;
+.listcontainer{
+  cursor: pointer;
+  border: 1px dotted black;
+  max-height: 80px;
+  overflow:hidden;
+  overflow-y:scroll;
+  li{
+    display: block;
      li {
-          //width: 200px;
-          display: block;
-          color: black;
-          padding: 5px;
-          margin: 5px;
+          text-align: center;
         }
     }
+  }
+  .listcontainer:hover{
+    overflow-y:scroll;
+  }
 
 td{
   .button{
@@ -92,14 +104,11 @@ td{
     justify-content: center;
   }
 }
-.th1{
-  justify-content: center;
-  //width:100px;
+table{
+  table-layout: fixed;
 }
-.inner-container{
-  margin: 10px;
-  width: 50%;
-  float: left;
+input {
+  width: 100%;
+  display: inline-block;
 }
-
 </style>
