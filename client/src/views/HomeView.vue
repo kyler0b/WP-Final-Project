@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue';
 import session, { login, logout } from '../stores/session'
+//import name1, {qty1, createWorkout} from '../views/AdminView.vue'
 
 import { reactive } from 'vue';
-import { remove } from '@vue/shared';
 
 const workouts = [
   {name: 'Squats'},
@@ -46,6 +46,7 @@ function removeFromCart(workouts: any) {
             <h3>{{ workout.name }}</h3>
           </li>
         </li>
+        
       </div>
 
       </div>
@@ -83,6 +84,7 @@ function removeFromCart(workouts: any) {
 .listcontainer{
   cursor: pointer;
   border: 1px dotted black;
+  //color: hsl(0deg, 0%, 21%);
   max-height: 80px;
   overflow:hidden;
   overflow-y:scroll;

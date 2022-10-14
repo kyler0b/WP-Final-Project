@@ -22,18 +22,18 @@
       
         <div id="navbarBasicExample" class="navbar-menu" a :class="{ 'is-active': isActive}">
           <div class="navbar-start">
-            <a class="navbar-item" href="/home">Home</a>
+            <router-link to = "/" class="navbar-item">Home</router-link>
       
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">More</a>
       
               <div class="navbar-dropdown">
-                <a class="navbar-item" href ="/workouts">Workouts</a>
-                <a class="navbar-item" href= "/friendsworkouts">Friends</a>
-                <a class="navbar-item" href ="/history">History</a>
-                <a class="navbar-item" href ="/admin">Admin</a>
+                <router-link to = "/workouts" class="navbar-item">Workouts</router-link>
+                <router-link to = "/friendsworkouts" class="navbar-item">Friends</router-link>
+                <router-link to = "/history" class="navbar-item">History</router-link>
+                <router-link to = "/admin" class="navbar-item">Admin</router-link>
                 <hr class="navbar-divider">
-                <a class="navbar-item" href ="/about">About</a>
+                <router-link to = "/about" class="navbar-item">About</router-link>
               </div>
             </div>
           </div>
