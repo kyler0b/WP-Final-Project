@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue'
 import router from '../router/index'
-
+import { login } from '../stores/session'
 </script>
 
 <template>
@@ -10,16 +10,19 @@ import router from '../router/index'
           <h3 class = "title">Log In</h3>
 
           <div class="form-group">
-              <label>User Name</label>
-              <input type="text" />
+              <label>First Name</label>
+              <input type="text" id="fname" />
           </div>
-
+          <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="lname" />
+          </div>
+            
           <div class="form-group">
               <label>Password</label>
-              <input type="password"/>
+              <input  type="text" class ="password" id="password"/>
           </div>
-
-          <button type="submit"><router-link to="/home">Sign In</router-link></button>
+          <button type ="submit" href = "/" @click="login({document}.getElementById('fname').innerHTML,{document}.getElementById('lname').innerHTML,{document}.getElementById('password').innerHTML, true )">Sign In</button>
       </form>
   </div>
 </template>

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { reactive } from '@vue/reactivity'
+import router from '../router/index';
 import Nav from '../components/Nav.vue'
 import session, { login, logout } from '../stores/session'
+
+function alert(){
+  alert("Must Be A Logged In Admin To View");
+}
 
 </script>
 
@@ -23,8 +28,9 @@ import session, { login, logout } from '../stores/session'
     </div>
 
     <div class="content" v-else>
-          <h1 class="title">Must Be An Admin</h1>
-      </div>
+      <h1 class ="title">Admin</h1>
+      <p>You Must Be An Admin To Access This Page</p>
+    </div>
 
     
   </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue';
 import session, { login, logout } from '../stores/session'
-//import name1, {qty1, createWorkout} from '../views/AdminView.vue'
 
 import { reactive } from 'vue';
 
@@ -13,10 +12,7 @@ const workouts = [
 ]
 
 const cart = reactive ([
-  {name: 'Squats', qty: 10},
-  {name: 'Burpees', qty: 10},
-  {name: 'Pushups', qty: 10},
-  {name: 'Situps', qty: 10},
+  
   
 ]) 
 
@@ -40,6 +36,7 @@ function removeFromCart(workouts: any) {
 
       <div class = "content">
         <h2 class ="title">Choose Your Workouts</h2>
+        <p class ="subtitle">Scroll Through Some of Our Workouts</p>
       <div class = "listcontainer">
         <li>
           <li v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)">
@@ -84,8 +81,7 @@ function removeFromCart(workouts: any) {
 .listcontainer{
   cursor: pointer;
   border: 1px dotted black;
-  //color: hsl(0deg, 0%, 21%);
-  max-height: 80px;
+  max-height: 60px;
   overflow:hidden;
   overflow-y:scroll;
   li{
