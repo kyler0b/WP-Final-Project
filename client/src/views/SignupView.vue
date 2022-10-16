@@ -1,31 +1,30 @@
 <script setup lang = "ts">
 import Nav from '../components/Nav.vue'
 import router from '../router/index'
-
+import { login } from '../stores/session'
 </script>
 
 <template>
-  <div class = "signup">
+  <div class = "signupdiv">
       <form>
           <h3 class = "title">Sign Up</h3>
-
+        
           <div class="form-group">
-              <label>User Name</label>
-              <input type="text"/>
+              <label>First Name</label>
+              <input type="string" v-model="fname" />
           </div>
-
           <div class="form-group">
-              <label>Email address</label>
-              <input type="email"/>
+              <label>Last Name</label>
+              <input type="string" v-model="lname" />
           </div>
-
+            
           <div class="form-group">
               <label>Password</label>
-              <input type="password"/>
+              <input  type="string" class ="password" v-model="password"/>
           </div>
 
-          <button type="submit"><router-link to="/home">Sign Up</router-link></button>
-
+          <router-link to = "/" class = "button is-light" @click="login(fname, lname, password, true)">Sign Up</router-link>
+          
           <p class="forgot-password text-right">
               Already registered 
               <router-link :to="{name: '/login'}">sign in?</router-link>
@@ -36,7 +35,7 @@ import router from '../router/index'
 
 <style lang = "scss">
 
-.signup{
+.signupdiv{
   border: 3px solid #f1f1f1;
   margin: auto;
   width: 50%;

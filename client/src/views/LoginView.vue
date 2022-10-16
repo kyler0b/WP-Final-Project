@@ -5,26 +5,26 @@ import { login } from '../stores/session'
 </script>
 
 <template>
-  <div class="login">
-      <form>
+    <div class = "login" id = "loginDiv">
+        <form>
           <h3 class = "title">Log In</h3>
 
           <div class="form-group">
               <label>First Name</label>
-              <input type="text" id="fname" />
+              <input type="string" v-model="fname" />
           </div>
           <div class="form-group">
               <label>Last Name</label>
-              <input type="text" id="lname" />
+              <input type="string" v-model="lname" />
           </div>
             
           <div class="form-group">
               <label>Password</label>
-              <input  type="text" class ="password" id="password"/>
+              <input  type="password" class ="password" v-model="password"/>
           </div>
-          <button type ="submit" href = "/" @click="login({document}.getElementById('fname').innerHTML,{document}.getElementById('lname').innerHTML,{document}.getElementById('password').innerHTML, true )">Sign In</button>
+          <router-link to = "/" class = "button is-light" @click="login(fname, lname, password, true)">Log In</router-link>
       </form>
-  </div>
+    </div>
 </template>
 
 <style lang = "scss">

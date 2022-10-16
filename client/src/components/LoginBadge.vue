@@ -1,15 +1,15 @@
 <script setup lang="ts">
     import session, { login, logout } from '../stores/session'
+
+    // @click="login('Admin', 'User', true)"
 </script>
 
 <template>
     <div class="buttons" v-if="session.user == null">
-        <a class="button is-primary">
-            <strong>Sign up</strong>
-        </a>
-        <a class="button is-light" @click="login('Admin', 'User', true)">
-            Log in
-        </a>
+        <router-link to = "/signup" class="button is-primary"><strong>Sign Up</strong></router-link>
+    
+        <router-link to = "/login" class="button is-light">Log In</router-link>
+    
     </div>
     <div v-else>
         <a class="button is-primary">
@@ -25,5 +25,5 @@
 
 
 <style scoped>
+
 </style>
-Footer

@@ -2,11 +2,7 @@
 import { reactive } from '@vue/reactivity'
 import router from '../router/index';
 import Nav from '../components/Nav.vue'
-import session, { login, logout } from '../stores/session'
-
-function alert(){
-  alert("Must Be A Logged In Admin To View");
-}
+import session, { login } from '../stores/session'
 
 </script>
 
