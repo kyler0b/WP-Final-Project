@@ -9,12 +9,15 @@ const workouts = [
   {name: 'Burpees'},
   {name: 'Pushups'},
   {name: 'Situps'},
+  {name: 'Lunges'},
+  {name: 'Pullups'},
+  {name: 'Leg Extensions'}
 ]
 
 const cart = reactive ([
   
   
-]) 
+])
 
 function addToCart(workouts: any) {
   cart.push({ ...workouts, qty: 10 });
@@ -35,8 +38,8 @@ function removeFromCart(workouts: any) {
     <div class="content" v-if="session.user != null">
 
       <div class = "content">
-        <h2 class ="title">Choose Your Workouts</h2>
-        <p class ="subtitle">Scroll Through Some of Our Workouts</p>
+        <h1 class ="title">Choose Your Workouts</h1>
+        <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
       <div class = "listcontainer">
         <li>
           <li v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)">
@@ -46,9 +49,9 @@ function removeFromCart(workouts: any) {
         
       </div>
 
-      </div>
+    </div>
       <div class = "content">
-        <h2 class ="title">Your Workouts</h2>
+        <h1 class ="title">Your Workouts</h1>
         <table class="table is-bordered">
           <tr>
             <th>Workout</th>
@@ -64,8 +67,8 @@ function removeFromCart(workouts: any) {
       </div>
     </div>
     <div class = "content" v-else>
-      <h2 class = "title">Welcome to Fitness App</h2>
-      <p class ="subtitle">To enjoy the full experience you must log in.</p>
+      <h1 class = "title">Welcome to Fitness App</h1>
+      <p class ="subtitle">To Enjoy The Full Experience You Must Log In.</p>
     </div>
 
   </div>

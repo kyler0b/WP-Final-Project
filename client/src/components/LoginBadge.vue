@@ -1,7 +1,6 @@
 <script setup lang="ts">
     import session, { login, logout } from '../stores/session'
 
-    // @click="login('Admin', 'User', true)"
 </script>
 
 <template>
@@ -12,9 +11,7 @@
     
     </div>
     <div v-else>
-        <a class="button is-primary">
-            Welcome {{session.user.firstName}} {{session.user.lastName}}
-        </a>
+        <router-link to = "/history" class="button is-primary" >Welcome {{session.user.firstName}} {{session.user.lastName}}</router-link>
         
         <a class="button is-light" @click="logout()">
             Log Out

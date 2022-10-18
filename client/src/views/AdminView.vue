@@ -25,7 +25,7 @@ import session, { login } from '../stores/session'
 
     <div class="content" v-else>
       <h1 class ="title">Admin</h1>
-      <p>You Must Be An Admin To Access This Page</p>
+      <p class = "subtitle">You Must Be An Admin To Access This Page</p>
     </div>
 
     
