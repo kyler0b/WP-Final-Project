@@ -16,7 +16,7 @@ function addFriend(firstName:string, lastName:string){
   const list = document.getElementById('list');
   const li = document.createElement('li');
   li.append(firstName+' '+lastName);
-  list.appendChild(li);
+  list?.appendChild(li);
 }
 
 
@@ -40,10 +40,10 @@ function addFriend(firstName:string, lastName:string){
             <th></th>
           </tr>
         
-          <tr><td> {{u1.firstName}} {{u1.lastName}} </td> <td><button id ="follow" onclick ="addFriend(u1.firstName, u1.lastName)">Follow</button></td></tr>
-          <tr><td> {{u2.firstName}} {{u2.lastName}} </td> <td><button id ="follow" onclick ="addFriend(u2.firstName, u2.lastName)">Follow</button></td></tr>
-          <tr><td> {{u3.firstName}} {{u3.lastName}} </td> <td><button id ="follow" onclick ="addFriend(u3.firstName, u3.lastName)">Follow</button></td></tr>
-          <tr><td> {{u4.firstName}} {{u4.lastName}} </td> <td><button id ="follow" onclick ="addFriend(u4.firstName, u4.lastName)">Follow</button></td></tr>
+          <tr><td> {{u1.firstName}} {{u1.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u1.firstName}}, {{u1.lastName}})">Follow</button></td></tr>
+          <tr><td> {{u2.firstName}} {{u2.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u2.firstName}}, {{u2.lastName}})">Follow</button></td></tr>
+          <tr><td> {{u3.firstName}} {{u3.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u3.firstName}}, {{u3.lastName}})">Follow</button></td></tr>
+          <tr><td> {{u4.firstName}} {{u4.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u4.firstName}}, {{u4.lastName}})">Follow</button></td></tr>
         </table>
 
         <table>

@@ -14,7 +14,7 @@ import session, { login } from '../stores/session'
 
     <div class="content" v-if="session.user != null">
       <h1 class ="title">Admin</h1>
-      <p>Add More Workouts Here</p>
+      <p class = "subtitle">Add More Workouts Here</p>
       <div v-if="session.user != null">
         <form>
           <input type="text" id="inputItem" placeholder="Enter a new workout">

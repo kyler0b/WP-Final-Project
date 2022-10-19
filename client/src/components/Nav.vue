@@ -28,7 +28,7 @@
       
               <div class="navbar-dropdown">
                 <router-link to = "/history" class="navbar-item">History</router-link>
-                <router-link to = "/friendsworkouts" class="navbar-item">Friends</router-link>
+                <router-link to = "/friends" class="navbar-item">Friends</router-link>
                 <router-link to = "/about" class="navbar-item">About</router-link>
                 <hr class="navbar-divider">
                 <router-link to = "/admin" class="navbar-item">Admin</router-link>
