@@ -17,7 +17,7 @@ import session, { login } from '../stores/session'
       <p>Add More Workouts Here</p>
       <div v-if="session.user != null">
         <form>
-          <input type="text" id="inputItem" placeholder="Enter a workout">
+          <input type="text" id="inputItem" placeholder="Enter a new workout">
           <input type="submit">
         </form>
       </div>

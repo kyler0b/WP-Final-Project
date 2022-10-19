@@ -11,7 +11,12 @@ const workouts = [
   {name: 'Situps'},
   {name: 'Lunges'},
   {name: 'Pullups'},
-  {name: 'Leg Extensions'}
+  {name: 'Leg Extensions'},
+  {name: 'Bicep Curls'},
+  {name: 'Tricep Curls'},
+  {name: 'Lateral Raises'},
+  {name: 'Overhead Press'},
+
 ]
 
 const cart = reactive ([

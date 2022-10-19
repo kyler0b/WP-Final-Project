@@ -5,10 +5,13 @@
 
 <template>
     <div class="buttons" v-if="session.user == null">
-        <router-link to = "/signup" class="button is-primary"><strong>Sign Up</strong></router-link>
+        <a class="button is-primary">Sign Up</a>
+        <a class = "button is-light" @click="login('Admin', 'User', true)">Log In</a>
+        <!--
+        <router-link to = "/signup" class="button is-primary">Sign Up</router-link>
     
         <router-link to = "/login" class="button is-light">Log In</router-link>
-    
+         -->
     </div>
     <div v-else>
         <router-link to = "/history" class="button is-primary" >Welcome {{session.user.firstName}} {{session.user.lastName}}</router-link>

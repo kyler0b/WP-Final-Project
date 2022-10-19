@@ -16,7 +16,6 @@
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
           </a>
         </div>
       
@@ -28,12 +27,12 @@
               <a class="navbar-link">More</a>
       
               <div class="navbar-dropdown">
-                <router-link to = "/workouts" class="navbar-item">Workouts</router-link>
-                <router-link to = "/friendsworkouts" class="navbar-item">Friends</router-link>
                 <router-link to = "/history" class="navbar-item">History</router-link>
-                <router-link to = "/admin" class="navbar-item">Admin</router-link>
-                <hr class="navbar-divider">
+                <router-link to = "/friendsworkouts" class="navbar-item">Friends</router-link>
                 <router-link to = "/about" class="navbar-item">About</router-link>
+                <hr class="navbar-divider">
+                <router-link to = "/admin" class="navbar-item">Admin</router-link>
+                
               </div>
             </div>
           </div>
