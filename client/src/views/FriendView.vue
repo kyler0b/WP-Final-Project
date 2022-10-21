@@ -3,22 +3,32 @@ import Nav from '../components/Nav.vue'
 import session, {User, login} from '../stores/session'
 import { reactive } from 'vue';
 
-  const u1 = {firstName: 'Mike', lastName: 'Landry', password: '1010', admin: true};
-  const u2 = {firstName: 'Tom', lastName: 'Brady', password: '7rings', admin: true};
-  const u3 = {firstName: 'Troy', lastName: 'Smith', password: '1111', admin: true};
-  const u4 = {firstName: 'Morgan', lastName: 'Jackson', password: '3345', admin: true};
+  const u1 = {firstName: 'Mike', lastName: 'Landry', password: '1010', admin: true, workouts: ['Jumping Jacks', 'Situps', 'Lunges']};
+  const u2 = {firstName: 'Tom', lastName: 'Brady', password: '7rings', admin: true, workouts: ['Bicep Curls', 'Pullups', 'Tricep Curls']};
+  const u3 = {firstName: 'Troy', lastName: 'Smith', password: '1111', admin: true, workouts: ['Pullups','Burpees', 'Squats']};
+  const u4 = {firstName: 'Morgan', lastName: 'Jackson', password: '3345', admin: true, workouts: ['Lateral Raises', 'Overhead Press']};
 
-  //function addFollow(firstName, lastName){
-    //cart.push({firstName, lastName});
-//}
+function showUser(firstName:string, workouts: string[]){
 
-function addFriend(firstName:string, lastName:string){
-  const list = document.getElementById('list');
-  const li = document.createElement('li');
-  li.append(firstName+' '+lastName);
-  list?.appendChild(li);
+const list2 = document.getElementById("list2");
+const div = document.createElement('div');
+list2!.append(div);
+list2!.append(firstName+"'s Workouts: ");
+
+while(workouts.length > 0){
+
+    const item = workouts.pop();
+    list2!.append(item+", ");
+
+  }
 }
 
+function clear(){
+
+const list2= document.getElementById("list2");
+list2!.remove();
+
+}
 
 </script>
 
@@ -29,31 +39,32 @@ function addFriend(firstName:string, lastName:string){
     </main>
 
     <div class="content" v-if="session.user != null">
-      <h1 class ="title">Find Friends</h1>
+      <h1 class ="title">See What Other Are Doing</h1>
 
       
       <div>
   
         <table>
           <tr>
-            <th>Name</th>
+            <th class ="title">Users</th>
             <th></th>
           </tr>
-        
-          <tr><td> {{u1.firstName}} {{u1.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u1.firstName}}, {{u1.lastName}})">Follow</button></td></tr>
-          <tr><td> {{u2.firstName}} {{u2.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u2.firstName}}, {{u2.lastName}})">Follow</button></td></tr>
-          <tr><td> {{u3.firstName}} {{u3.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u3.firstName}}, {{u3.lastName}})">Follow</button></td></tr>
-          <tr><td> {{u4.firstName}} {{u4.lastName}} </td> <td><button id ="follow" onclick ="addFriend({{u4.firstName}}, {{u4.lastName}})">Follow</button></td></tr>
+
+          
+    
+          <tr><td class ="subtitle"> {{u1.firstName}} {{u1.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u1.firstName, u1.workouts)">View</a></td></tr>
+          <tr><td class ="subtitle"> {{u2.firstName}} {{u2.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u2.firstName, u2.workouts)">View</a></td></tr>
+          <tr><td class ="subtitle"> {{u3.firstName}} {{u3.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u3.firstName, u3.workouts)">View</a></td></tr>
+          <tr><td class ="subtitle"> {{u4.firstName}} {{u4.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u4.firstName, u4.workouts)">View</a></td></tr>
         </table>
 
         <table>
-          <tr>
-            <th>Your Friends</th>
-          </tr>
-          
-          <ul id = "list">
-          </ul>
-
+          <div id = "list" class = "subtitle">
+            <div id = "list2">
+            </div>
+            <p></p>
+            <a class ="button" @click="clear()">Clear</a>
+          </div>
         </table>
 
       </div>
@@ -61,8 +72,8 @@ function addFriend(firstName:string, lastName:string){
     </div>
 
     <div class = "content" v-else>
-      <h1 class = "title">Find Friends</h1>
-      <p class ="subtitle">To See Your Friends You Must Log In</p>
+      <h1 class = "title">See What Other Are Doing</h1>
+      <p class ="subtitle">To See What Others Are Doing You Must Log In</p>
     </div>
   </div>
 </template>
@@ -87,11 +98,12 @@ function addFriend(firstName:string, lastName:string){
       }
     }
   }
-   
-   
   .button{
     width: 50px;
     justify-content: center;
+  }
+  .list{
+    display: hidden;
   }
   
 </style>

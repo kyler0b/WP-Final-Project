@@ -4,6 +4,12 @@ import router from '../router/index';
 import Nav from '../components/Nav.vue'
 import session, { login } from '../stores/session'
 
+function addWorkout(){
+
+
+}
+
+
 </script>
 
 <template>
@@ -18,14 +24,14 @@ import session, { login } from '../stores/session'
       <div v-if="session.user != null">
         <form>
           <input type="text" id="inputItem" placeholder="Enter a new workout">
-          <input type="submit">
+          <a class = "button">Add Workout</a>
         </form>
       </div>
     </div>
 
     <div class="content" v-else>
       <h1 class ="title">Admin</h1>
-      <p class = "subtitle">You Must Be An Admin To Access This Page</p>
+      <p class = "subtitle">You Must Be A Logged In Admin To Access This Page</p>
     </div>
 
     
@@ -37,5 +43,15 @@ import session, { login } from '../stores/session'
   max-width: 500px;
   margin: auto;
   text-align: center;
+}
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px;
+  margin-bottom: 10px;
+
+}
+input[type=text]:focus{
+  background-color: lightblue;
 }
 </style>

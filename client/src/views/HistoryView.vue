@@ -14,20 +14,19 @@ import cart from '../views/HomeView.vue'
     <div class="content" v-if="session.user != null">
       <h1 class = "title">Hi, {{session.user.firstName}}</h1>
       <p class = "subtitle">Look At What You've Done So Far</p>
-      <!--
+    
       <table class="table is-bordered">
           <tr>
-            <th>Workout</th>
-            <th>Qty</th>
-            <th></th>
+            <th>Workouts</th>
           </tr>
+
           <tr v-for="workout in cart" :key="workout.name">
-            <td>{{ workout.name }}</td>
-            <td>{{workout.qty}}</td>
-            <td><input type="button" class="remove-item" background-color= "red" value="X" @click="removeFromCart(workout)"/></td>
+            <!--
+            <td>{{workout.name}}</td>
+            -->
           </tr>
       </table>
-      -->
+      
     </div>
 
     <div class = "content" v-else>
@@ -42,5 +41,8 @@ import cart from '../views/HomeView.vue'
   max-width: 500px;
   margin: auto;
   text-align: center;
+}
+table{
+  table-layout: fixed;
 }
 </style>

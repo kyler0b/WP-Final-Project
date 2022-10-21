@@ -21,6 +21,8 @@ export class User {
     public lastName?: string;
     public password?: string;
     public admin?: boolean;
+    public workouts?: string[];
+    public friends?: string[];
 }
 
 export default session;
