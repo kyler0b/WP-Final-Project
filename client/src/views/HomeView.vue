@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue';
-import session, { login, logout } from '../stores/session'
+import session, { login, logout } from '../stores/session';
+//import { getWorkouts, type Workout } from '../stores/workouts';
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+/*
+const workouts = reactive([] as Workout[])
+getWorkouts().then( x=> workouts.push(...x.workouts));
+*/
 
 const workouts = [
   {name: 'Squats'},
@@ -17,12 +22,10 @@ const workouts = [
   {name: 'Lateral Raises'},
   {name: 'Overhead Press'},
 
-]
+] 
 
-const cart = reactive ([
-  
-  
-])
+
+const cart = reactive ([])
 
 function addToCart(workouts: any) {
   cart.push({ ...workouts, qty: 10 });
@@ -45,16 +48,19 @@ function removeFromCart(workouts: any) {
       <div class = "content">
         <h1 class ="title">Choose Your Workouts</h1>
         <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
-      <div class = "listcontainer">
-        <li>
-          <li v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)">
-            <h3>{{ workout.name }}</h3>
-          </li>
-        </li>
-        
+      <div> 
+      <div class = "workoutcontainer">
+        <div class="scroll">
+            <div class="row">
+                <div class="item">
+                  <div class="box" v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)"><h3>{{ workout.name }}</h3></div>
+                </div>
+              </div>
+            </div>
       </div>
-
+      </div>
     </div>
+      
       <div class = "content">
         <h1 class ="title">Your Workouts</h1>
         <table class="table is-bordered">
@@ -86,23 +92,6 @@ function removeFromCart(workouts: any) {
   margin: auto;
   text-align: center;
 }
-.listcontainer{
-  cursor: pointer;
-  border: 1px dotted black;
-  max-height: 60px;
-  overflow:hidden;
-  overflow-y:scroll;
-  li{
-    display: block;
-     li {
-          text-align: center;
-        }
-    }
-  }
-  .listcontainer:hover{
-    overflow-y:scroll;
-  }
-
 td{
   .button{
     padding-left: 10px;
@@ -112,9 +101,32 @@ td{
 }
 table{
   table-layout: fixed;
+  box-shadow: 0 5px 5px rgba(0,0,0,.50);
 }
 input {
   width: 100%;
   display: inline-block;
+}
+.scroll {
+  overflow: auto;
+  width: 100%;
+}
+.row {
+  display: table-row;
+}
+.item {
+  display: flex;
+  padding: 20px;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  box-shadow: 0 5px 5px rgba(0,0,0,.50);
+}
+.workoutcontainer {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
 }
 </style>

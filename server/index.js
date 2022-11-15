@@ -4,22 +4,39 @@ const app = express()
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
-mongoose.connect("//admin:admin1234@cluster0.6jhd5sp.mongodb.net/test");
+app.use((req, res, next) => {
+  res.setHeader('SUNY', 'MY SUNY');
+  res.setHeader('Acess-Control-Allow-Origin', '*');
+  res.setHeader('Acess-Control-Allow-Methods', 'GET,POST, PATCH, DELETE');
+  res.setHeader('Acess-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+})
 
-app.use(require("express-session")({
-secret:"Any normal Word",//decode or encode session
-    resave: false,          
-    saveUninitialized:false    
-}));
+const productsController = require('./controllers/products');
 
+app.use('/', express.static('./client/dist'));
 
+app
+.get('/', (req, res) => {
+  res.status(200).send('Happy Sweet New Year');
+})
+.get('/error', (req, res) => {
+  sss.PORT();
+})
+.use('/api/v1/products', productsController)
 
+app.get('*', (req, res) => {
+  
+  res.sendFile('index.html', {root: './client/dist'});
+})
 
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status( err.httpCode ?? 500).send({
+      message: err.message ?? 'Something went wrong',
+      status: err.httpCode ?? 500
+  });
 
-
-app.get('/', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
 })
 
 app.listen(port, () => {
