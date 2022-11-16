@@ -3,6 +3,9 @@
     import { ref } from 'vue';
     import LoginBadge from './LoginBadge.vue';
 
+    const now =  new Date();
+    const new_now = now.toLocaleDateString();
+
     let isActive = ref(false);
 
 </script>
@@ -36,9 +39,10 @@
               </div>
             </div>
           </div>
-      
+
           <div class="navbar-end">
             <div class="navbar-item">
+              <a class="button is-primary" id="date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{new_now}}</a>
               <login-badge></login-badge>
             </div>
           </div>

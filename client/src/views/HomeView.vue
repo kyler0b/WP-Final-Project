@@ -41,7 +41,7 @@ function removeFromCart(workouts: any) {
     <main>
       <NavView />
     </main>
-  
+    
     <div class="content" v-if="session.user != null">
 
       <div class = "content">
