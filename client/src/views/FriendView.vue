@@ -1,33 +1,36 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue'
 import session, {User, login} from '../stores/session'
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
   const u1 = {firstName: 'Mike', lastName: 'Landry', password: '1010', admin: true, workouts: ['Jumping Jacks', 'Situps', 'Lunges']};
   const u2 = {firstName: 'Tom', lastName: 'Brady', password: '7rings', admin: true, workouts: ['Bicep Curls', 'Pullups', 'Tricep Curls']};
   const u3 = {firstName: 'Troy', lastName: 'Smith', password: '1111', admin: true, workouts: ['Pullups','Burpees', 'Squats']};
   const u4 = {firstName: 'Morgan', lastName: 'Jackson', password: '3345', admin: true, workouts: ['Lateral Raises', 'Overhead Press']};
 
-function showUser(firstName:string, workouts: string[]){
+function open(firstName:string, workouts: string[]){
+  
+  var modal = document.getElementById("myModal");
+  modal!.style.display = "block";
+  const list2 = document.getElementById("list2");
+  const div = document.createElement('div');
+  list2!.append(div);
+  list2!.append(firstName+"'s Workouts: ");
 
-const list2 = document.getElementById("list2");
-const div = document.createElement('div');
-list2!.append(div);
-list2!.append(firstName+"'s Workouts: ");
+  while(workouts.length > 0){
 
-while(workouts.length > 0){
-
-    const item = workouts.pop();
-    list2!.append(item+", ");
-
+      const item = workouts.pop();
+      list2!.append(" - "+item+" ");
   }
 }
 
-function clear(){
+function close(){
 
-const list2= document.getElementById("list2");
-list2!.remove();
+  var modal = document.getElementById("myModal");
+  modal!.style.display = "none";
+  const list2= document.getElementById("list2");
 
+  list2!.innerHTML = "";
 }
 
 </script>
@@ -41,7 +44,6 @@ list2!.remove();
     <div class="content" v-if="session.user != null">
       <h1 class ="title">See What Other Are Doing</h1>
 
-      
       <div>
   
         <table>
@@ -49,26 +51,32 @@ list2!.remove();
             <th class ="title">Users</th>
             <th></th>
           </tr>
-
-          
-    
-          <tr><td class ="subtitle"> {{u1.firstName}} {{u1.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u1.firstName, u1.workouts)">View</a></td></tr>
-          <tr><td class ="subtitle"> {{u2.firstName}} {{u2.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u2.firstName, u2.workouts)">View</a></td></tr>
-          <tr><td class ="subtitle"> {{u3.firstName}} {{u3.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u3.firstName, u3.workouts)">View</a></td></tr>
-          <tr><td class ="subtitle"> {{u4.firstName}} {{u4.lastName}} </td> <td><a class = "button" id ="view" @click="showUser(u4.firstName, u4.workouts)">View</a></td></tr>
+        
+          <tr><td class ="subtitle"> {{u1.firstName}} {{u1.lastName}} </td> <td><button id="myBtn" @click="open(u1.firstName, u1.workouts)">View</button></td></tr>
+          <tr><td class ="subtitle"> {{u2.firstName}} {{u2.lastName}} </td> <td><button id="myBtn" @click="open(u2.firstName, u2.workouts)">View</button></td></tr>
+          <tr><td class ="subtitle"> {{u3.firstName}} {{u3.lastName}} </td> <td><button id="myBtn" @click="open(u3.firstName, u3.workouts)">View</button></td></tr>
+          <tr><td class ="subtitle"> {{u4.firstName}} {{u4.lastName}} </td> <td><button id="myBtn" @click="open(u4.firstName, u4.workouts)">View</button></td></tr>
         </table>
+        </div>
 
-        <table>
-          <div id = "list" class = "subtitle">
+        <p></p>
+        <p></p>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close" @click="close()">&times;</span>
+
+            <div id = "list" class = "subtitle">
             <div id = "list2">
             </div>
-            <p></p>
-            <a class ="button" @click="clear()">Clear</a>
-          </div>
-        </table>
 
-      </div>
-      
+            <p></p>
+            </div>
+          </div>
+        </div>
     </div>
 
     <div class = "content" v-else>
@@ -84,26 +92,38 @@ list2!.remove();
   margin: auto;
   text-align: center;
 }
-.listcontainer{
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  width: 50px;
+  justify-content: center;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
   cursor: pointer;
-  border: 1px solid black;
-  max-height: 1000px;
-  
-  padding-top: 5px; 
-  overflow-y:scroll;
-  li{
-    li{
-        padding-top: 5px; 
-        text-align: center;
-      }
-    }
-  }
-  .button{
-    width: 50px;
-    justify-content: center;
-  }
-  .list{
-    display: hidden;
-  }
-  
+}
 </style>

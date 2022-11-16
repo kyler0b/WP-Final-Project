@@ -48,8 +48,9 @@ function removeFromCart(workouts: any) {
       <div class = "content">
         <h1 class ="title">Choose Your Workouts</h1>
         <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
-      <div> 
-      <div class = "workoutcontainer">
+
+
+        <div class = "workoutcontainer">
         <div class="scroll">
             <div class="row">
                 <div class="item">
@@ -59,6 +60,9 @@ function removeFromCart(workouts: any) {
             </div>
       </div>
       </div>
+
+      <div> 
+     
     </div>
       
       <div class = "content">
