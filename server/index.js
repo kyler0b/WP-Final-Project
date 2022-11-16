@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 })
 
-const productsController = require('./controller/workouts');
+const productsController = require('./controllers/products');
 
 app.use('/', express.static('./client/dist'));
 
@@ -23,12 +23,12 @@ app
 .get('/error', (req, res) => {
   sss.PORT();
 })
-.use('/api/v1/workouts', productsController)
-/*
+.use('/api/v1/products', productsController)
+
 app.get('*', (req, res) => {
   
   res.sendFile('index.html', {root: './client/dist'});
-})*/
+})
 
 app.use((err, req, res, next) => {
   console.log(err);
