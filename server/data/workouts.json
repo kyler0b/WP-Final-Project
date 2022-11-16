@@ -1,0 +1,60 @@
+{
+    "workouts": [
+
+        {
+            "id": 1,
+            "name": "Squats",
+            "details": "20"
+        },
+        {
+            "id": 2,
+            "name": "Burpees",
+            "details": "10 x 2"
+        },
+        {
+            "id": 3,
+            "name": "Push-ups",
+            "details": "10 x 2"
+        },
+        {
+            "id": 4,
+            "name": "Sit-ups",
+            "details": "30"
+        },
+        {
+            "id": 5,
+            "name": "Lunges",
+            "details": "20"
+        },
+        {
+            "id": 6,
+            "name": "Pull-ups",
+            "details": "20"
+        },
+        {
+            "id": 7,
+            "name": "Leg Extensions",
+            "details": "10 x 2"
+        },
+        {
+            "id": 8,
+            "name": "Bicep Curls",
+            "details": "10 x 2"
+        },
+        {
+            "id": 9,
+            "name": "Tricep Curls",
+            "details": "10 x 2"
+        },
+        {
+            "id": 10,
+            "name": "Lateral Raises",
+            "details": "10"
+        },
+        {
+            "id": 11,
+            "name": "Overhead Presses",
+            "details": "10"
+        }
+    ]
+}

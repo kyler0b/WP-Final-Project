@@ -52,14 +52,13 @@ function removeFromCart(workouts: any) {
           <div class="scroll">
               <div class="row">
                   <div class="item">
-                    <div class="box" v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)"><h3>{{ workout.name }}</h3></div>
+                    <div class="box" v-for="workout in workouts" :key="workout.id" @click="addToCart(workout)"><h3>{{ workout.name }}</h3></div>
                   </div>
                 </div>
           </div>
         </div>
       </div>
-     
-      <div class = "content">
+      <div class = "content" v-if="cart.length != 0">
         <h1 class ="title">Your Workouts</h1>
         <table class="table is-bordered">
           <tr>
