@@ -24,7 +24,6 @@ const workouts = [
 
 ] 
 
-
 const cart = reactive ([])
 
 function addToCart(workouts: any) {
@@ -49,22 +48,17 @@ function removeFromCart(workouts: any) {
         <h1 class ="title">Choose Your Workouts</h1>
         <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
 
-
         <div class = "workoutcontainer">
-        <div class="scroll">
-            <div class="row">
-                <div class="item">
-                  <div class="box" v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)"><h3>{{ workout.name }}</h3></div>
+          <div class="scroll">
+              <div class="row">
+                  <div class="item">
+                    <div class="box" v-for="workout in workouts" :key="workout.name" @click="addToCart(workout)"><h3>{{ workout.name }}</h3></div>
+                  </div>
                 </div>
-              </div>
-            </div>
+          </div>
+        </div>
       </div>
-      </div>
-
-      <div> 
      
-    </div>
-      
       <div class = "content">
         <h1 class ="title">Your Workouts</h1>
         <table class="table is-bordered">

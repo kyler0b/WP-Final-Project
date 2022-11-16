@@ -111,7 +111,6 @@ function close(){
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
-
 .close {
   width: 50px;
   justify-content: center;
