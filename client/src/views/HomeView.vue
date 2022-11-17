@@ -30,8 +30,18 @@ function addToCart(workouts: any) {
   cart.push({ ...workouts, qty: 10 });
 }
 
-function removeFromCart(workouts: any) {
-  cart.shift();
+function removeFromCart(cart: any, workout: any) {
+  const index = cart.indexOf(workout);
+  
+  if(index > -1){
+    cart.splice(index, 1);
+  }
+  
+  //cart.splice(0, cart.length);
+}
+
+function clearCart(){
+  cart.splice(0);
 }
 
 </script>
@@ -64,12 +74,12 @@ function removeFromCart(workouts: any) {
           <tr>
             <th>Workout</th>
             <th>Qty</th>
-            <th></th>
+            <th><input type="button" class="remove-item" background-color= "red" value="Clear All" @click="clearCart()"/></th>
           </tr>
           <tr v-for="workout in cart" :key="workout.name">
             <td>{{ workout.name }}</td>
             <td>{{workout.qty}}</td>
-            <td><input type="button" class="remove-item" background-color= "red" value="X" @click="removeFromCart(workout)"/></td>
+            <td><input type="button" class="remove-item" background-color= "red" value="X" @click="removeFromCart(cart, workout)"/></td>
           </tr>
         </table>
       </div>
