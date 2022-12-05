@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Nav from '../components/Nav.vue';
 import session, { login, logout } from '../stores/session';
-//import { getWorkouts, type Workout } from '../stores/workouts';
+import { getWorkouts } from '../stores/workouts';
 
 import { reactive, ref } from 'vue';
 /*
@@ -32,7 +32,7 @@ function addToCart(workouts: any) {
 
 function removeFromCart(cart: any, workout: any) {
   const index = cart.indexOf(workout);
-  
+
   if(index > -1){
     cart.splice(index, 1);
   }
@@ -55,7 +55,9 @@ function clearCart(){
     <div class="content" v-if="session.user != null">
 
       <div class = "content">
-        <h1 class ="title">Choose Your Workouts</h1>
+        <h1 class = "title">Hi, {{session.user.firstName}}</h1>
+
+        <h2 class ="title">Choose Your Workouts</h2>
         <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
 
         <div class = "workoutcontainer">
@@ -74,14 +76,17 @@ function clearCart(){
           <tr>
             <th>Workout</th>
             <th>Qty</th>
-            <th><input type="button" class="remove-item" background-color= "red" value="Clear All" @click="clearCart()"/></th>
+            <th><input type="button" class="remove-item" value="Clear All" @click="clearCart()"/></th>
           </tr>
           <tr v-for="workout in cart" :key="workout.name">
             <td>{{ workout.name }}</td>
             <td>{{workout.qty}}</td>
-            <td><input type="button" class="remove-item" background-color= "red" value="X" @click="removeFromCart(cart, workout)"/></td>
+            <td><input type="button" class="remove-item" value="X" @click="removeFromCart(cart, workout)"/></td>
           </tr>
         </table>
+
+        <!--<div><button>Save Cart</button></div>-->
+
       </div>
     </div>
     <div class = "content" v-else>

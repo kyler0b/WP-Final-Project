@@ -12,7 +12,6 @@ import cart from '../views/HomeView.vue'
     </main>
 
     <div class="content" v-if="session.user != null">
-      <h1 class = "title">Hi, {{session.user.firstName}}</h1>
       <p class = "subtitle">Look At What You've Done So Far</p>
     
       <table class="table is-bordered">

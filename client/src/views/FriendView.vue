@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Nav from '../components/Nav.vue'
-import session, {User, login} from '../stores/session'
+//import Nav from '../components/Nav.vue'
+import session, { login} from '../stores/session'
 import { reactive, ref } from 'vue';
 
   const u1 = {firstName: 'Mike', lastName: 'Landry', password: '1010', admin: true, workouts: ['Jumping Jacks', 'Situps', 'Lunges']};
@@ -45,10 +45,10 @@ function close(){
       <h1 class ="title">See What Other Are Doing</h1>
 
       <div>
-  
+        <!--
         <table>
           <tr>
-            <th class ="title">Users</th>
+            <th class ="title">Other Users</th>
             <th></th>
           </tr>
         
@@ -57,6 +57,19 @@ function close(){
           <tr><td class ="subtitle"> {{u3.firstName}} {{u3.lastName}} </td> <td><button id="myBtn" @click="open(u3.firstName, u3.workouts)">View</button></td></tr>
           <tr><td class ="subtitle"> {{u4.firstName}} {{u4.lastName}} </td> <td><button id="myBtn" @click="open(u4.firstName, u4.workouts)">View</button></td></tr>
         </table>
+        -->
+
+          <div class="scroll">
+             
+                  <div class="item">
+                    <div class ="box" @click="open(u1.firstName, u1.workouts)"> <p>{{u1.firstName}} {{u1.lastName}}</p> </div>
+                    <div class ="box" @click="open(u2.firstName, u2.workouts)"> <p>{{u2.firstName}} {{u2.lastName}}</p> </div>
+                    <div class ="box" @click="open(u3.firstName, u3.workouts)"> <p>{{u3.firstName}} {{u3.lastName}}</p> </div>
+                    <div class ="box" @click="open(u4.firstName, u4.workouts)"> <p>{{u4.firstName}} {{u4.lastName}}</p> </div>
+                  </div>
+                
+          </div>
+
         </div>
 
         <p></p>
@@ -124,5 +137,29 @@ function close(){
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.scroll {
+  overflow: auto;
+  width: 100%;
+}
+.row {
+  
+}
+.item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  justify-content: center;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(0,0,0,.50);
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>

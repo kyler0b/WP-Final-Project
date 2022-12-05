@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import Nav from '../components/Nav.vue'
+//import Nav from '../components/Nav.vue'
 import router from '../router/index'
-import { login } from '../stores/session'
+import session, { login } from '../stores/session'
+import { ref } from 'vue';
+
+var fName = ref('');
+var lName = ref('');
+var passwrd = ref('');
+
+
 </script>
 
 <template>
@@ -11,18 +18,18 @@ import { login } from '../stores/session'
 
           <div class="form-group">
               <label>First Name</label>
-              <input type="string" v-model="fname" />
+              <input type="string" v-model="fName" />
           </div>
           <div class="form-group">
               <label>Last Name</label>
-              <input type="string" v-model="lname" />
+              <input type="string" v-model="lName" />
           </div>
             
           <div class="form-group">
               <label>Password</label>
-              <input  type="password" class ="password" v-model="password"/>
+              <input  type="password" class ="password" v-model="passwrd"/>
           </div>
-          <router-link to = "/" class = "button is-light" @click="login(fname, lname, password, true)">Log In</router-link>
+          <router-link to = "/" class = "button is-light" @click="login(fName, lName, passwrd, true)">Log In</router-link>
       </form>
     </div>
 </template>

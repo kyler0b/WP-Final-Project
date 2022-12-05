@@ -42,7 +42,7 @@
 
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="button is-primary" id="date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{new_now}}</a>
+              <a class="button is-primary disabled" id="date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{new_now}}</a>
               <login-badge></login-badge>
             </div>
           </div>
@@ -50,3 +50,9 @@
       </nav>
 
 </template>
+
+<style scoped>
+.disabled{
+  pointer-events: none;
+}
+</style>
