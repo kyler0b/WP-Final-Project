@@ -45,20 +45,6 @@ function close(){
       <h1 class ="title">See What Other Are Doing</h1>
 
       <div>
-        <!--
-        <table>
-          <tr>
-            <th class ="title">Other Users</th>
-            <th></th>
-          </tr>
-        
-          <tr><td class ="subtitle"> {{u1.firstName}} {{u1.lastName}} </td> <td><button id="myBtn" @click="open(u1.firstName, u1.workouts)">View</button></td></tr>
-          <tr><td class ="subtitle"> {{u2.firstName}} {{u2.lastName}} </td> <td><button id="myBtn" @click="open(u2.firstName, u2.workouts)">View</button></td></tr>
-          <tr><td class ="subtitle"> {{u3.firstName}} {{u3.lastName}} </td> <td><button id="myBtn" @click="open(u3.firstName, u3.workouts)">View</button></td></tr>
-          <tr><td class ="subtitle"> {{u4.firstName}} {{u4.lastName}} </td> <td><button id="myBtn" @click="open(u4.firstName, u4.workouts)">View</button></td></tr>
-        </table>
-        -->
-
           <div class="scroll">
              
                   <div class="item">

@@ -20,9 +20,7 @@ import cart from '../views/HomeView.vue'
           </tr>
 
           <tr v-for="workout in cart" :key="workout.name">
-            <!--
-            <td>{{workout.name}}</td>
-            -->
+        
           </tr>
       </table>
       

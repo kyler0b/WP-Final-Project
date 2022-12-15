@@ -16,16 +16,6 @@ export function logout() {
     session.user = null;
 }
 
-
-/**export class User {
-    public firstName?: string;
-    public lastName?: string;
-    public password?: string;
-    public admin?: boolean;
-    public workouts?: string[];
-    public friends?: string[];
-}*/
-
 export default session;
 
 export interface User {

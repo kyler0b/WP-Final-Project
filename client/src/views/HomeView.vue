@@ -2,12 +2,26 @@
 import Nav from '../components/Nav.vue';
 import session, { login, logout } from '../stores/session';
 import { getWorkouts } from '../stores/workouts';
-
+import AutoSearch from '../components/AutoSearch.vue';
 import { reactive, ref } from 'vue';
+//import vSelect from 'vue-select';
+//import 'vue-select/dist/vue-select.css';
+
+const name = ref('');
+const selected = ref(null);
+    
+    const filteredDataArray = (() =>
+      workouts.filter(
+        (option) =>
+          option.toString().toLowerCase().indexOf(name.value.toLowerCase()) >= 0
+      )
+    );
+
 /*
 const workouts = reactive([] as Workout[])
 getWorkouts().then( x=> workouts.push(...x.workouts));
 */
+
 
 const workouts = [
   {name: 'Squats'},
@@ -36,8 +50,7 @@ function removeFromCart(cart: any, workout: any) {
   if(index > -1){
     cart.splice(index, 1);
   }
-  
-  //cart.splice(0, cart.length);
+
 }
 
 function clearCart(){
@@ -60,6 +73,37 @@ function clearCart(){
         <h2 class ="title">Choose Your Workouts</h2>
         <p class ="subtitle">Scroll Through Some Of Our Workouts</p>
 
+        <!--
+        <o-field label="Find A Workout" />
+          <o-autocomplete
+            v-model="name"
+            rounded
+            expanded
+            placeholder="Situp"
+            icon="search"
+            clearable
+            :data="filteredDataArray"
+            @select="(option) => (selected = option)"
+          >
+        <template #empty>No results found</template>
+      </o-autocomplete>
+      -->
+       
+        <AutoSearch
+          :items = workouts v-model="name"
+          />
+       
+        <!--
+        <form autocomplete="off">
+          <div class = "autosearch">
+            <input id="myInput" type="text" v-model="name" placeholder="Search For A Workout" @input="onChange"/>
+          </div>
+          
+          <input class="button is-light" type="submit" />
+          
+        </form>
+        -->
+        
         <div class = "workoutcontainer">
           <div class="scroll">
               <div class="row">
@@ -84,8 +128,6 @@ function clearCart(){
             <td><input type="button" class="remove-item" value="X" @click="removeFromCart(cart, workout)"/></td>
           </tr>
         </table>
-
-        <!--<div><button>Save Cart</button></div>-->
 
       </div>
     </div>

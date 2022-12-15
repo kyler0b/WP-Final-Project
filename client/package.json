@@ -16,7 +16,9 @@
     "passport": "^0.6.0",
     "pinia": "^2.0.21",
     "vue": "^3.2.38",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "vue-select": "^3.20.0",
+    "vue3-autocomplete": "^1.0.4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
